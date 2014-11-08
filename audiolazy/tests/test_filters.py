@@ -504,6 +504,13 @@ class TestZFilter(object):
     assert filt in my_set
     assert -z not in my_set
 
+class TestZFilterPlot(object):
+
+  def test_diff_filter_plotting(self):
+    from matplotlib.figure import Figure
+    diff = 1 - z ** -1
+    zplot = diff.zplot()
+    assert isinstance(zplot, Figure)
 
 @p("filt_class", [CascadeFilter, ParallelFilter])
 class TestCascadeAndParallelFilters(object):
